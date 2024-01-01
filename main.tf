@@ -1,7 +1,7 @@
 provider "aws" {
   region = "ap-south-1"
-  access_key = "AKIAZYN2UDMZQTFALWUX"
-  secret_key = "mnOzybd3B3die7FKukZJPBWRUPGz32mb8gdjOMv2"
+  access_key = "add_your_access_key"
+  secret_key = "add_your_secret_key"
   
 }
 
@@ -184,7 +184,7 @@ resource "aws_db_instance" "mariadb" {
   instance_class       = "db.t3.micro"
   db_name                 = "wordpressdb"
   username             = "manishadmin"
-  password             = "manish1o1" # Replace with your desired password
+  password             = "manishpasswd" # Replace with your desired password
   skip_final_snapshot  = true
   publicly_accessible  = false
   multi_az              = false
@@ -218,7 +218,7 @@ resource "aws_instance" "WordPress" {
 
                 sudo sed -i "s/define('DB_NAME', '.*');/define('DB_NAME', 'wordpressdb');/" /var/www/html/wp-config.php
                 sudo sed -i "s/define('DB_USER', '.*');/define('DB_USER', 'manishadmin');/" /var/www/html/wp-config.php
-                sudo sed -i "s/define('DB_PASSWORD', '.*');/define('DB_PASSWORD', 'manish1o1');/" /var/www/html/wp-config.php
+                sudo sed -i "s/define('DB_PASSWORD', '.*');/define('DB_PASSWORD', 'manishpasswd');/" /var/www/html/wp-config.php
                 sudo sed -i "s/define('DB_HOST', '.*');/define('DB_HOST', '${aws_db_instance.mariadb.endpoint}');/" /var/www/html/wp-config.php
               EOF
   # Other resource settings...
