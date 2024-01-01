@@ -194,7 +194,7 @@ resource "aws_db_instance" "mariadb" {
 
 #Launch a WordPress host
 resource "aws_instance" "WordPress" {
-  ami = "ami-03f4878755434977f"
+  ami = "add_your-ubuntu_AMI"
   instance_type = "t2.micro"
   key_name = "new-id"
   associate_public_ip_address = true
